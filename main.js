@@ -1,25 +1,61 @@
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!',
-        seen: true
+var app = Vue.createApp({
+    data () {
+        return {
+            message: 'Hello Vue!',
+            seen: true
+        }
     }
 })
 
-var app2 = new Vue({
-    el: '#app-2',
-    data: {
-        message: 'You loaded this page on ' + new Date().toLocaleString()
-    }
-})
+app.mount('#app');
 
-var app3 = new Vue({
-    el: '#app-3',
-    data: {
-        todos: [
-            {text: "fuck you js"},
-            {text: "fuck you css"},
-            {text: "fuck you html"}
-        ]
+var app2 = Vue.createApp({
+    data () {
+        return {
+            message: 'You loaded this page on ' + new Date().toLocaleString()
+        }
     }
-})
+}).mount('#app-2');
+
+var app3 = Vue.createApp({
+    data () {
+        return {
+            todos: [
+                {text: "fuck you js"},
+                {text: "fuck you css"},
+                {text: "fuck you html"}
+            ]
+        }
+    }
+}).mount('#app-3');
+
+var app4 = Vue.createApp({
+    data () {
+        return {
+            price: 100,
+            quantity: 10
+        }
+    },
+    methods: {
+        totalMethod () {
+            return this.price * this.quantity;
+        }
+    },
+    computed: {
+        totalComputed () {
+            return this.price * this.quantity;
+        }
+    }
+    // The function in computed will be computed once until the used attribute value has been changed
+}).mount('#app-4');
+
+app4.$data.price = 10
+
+var app5 = Vue.createApp({
+    template: '<div>{{ greeting }} is so nice!</div>',
+    data () {
+        return {
+            greeting: 'Hello Vue.js!'
+        }
+    }
+}).mount('#app-5');

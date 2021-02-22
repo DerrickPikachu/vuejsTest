@@ -23,7 +23,20 @@
         </ol>
     </div>
 
-    <script src="https://unpkg.com/vue"></script>
+    <div id="app-4">
+        price: {{ price }}
+        amount: {{ quantity }}
+        total: {{ price * quantity }}
+        <br>
+        use method: {{ totalMethod() }}
+        use computed: {{ totalComputed }}
+    </div>
+
+    <div id="app-5">
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="main.js"></script>
 </body>
 </html>
