@@ -59,3 +59,21 @@ var app5 = Vue.createApp({
         }
     }
 }).mount('#app-5');
+
+var coin = Vue.createApp({
+    data () {
+        return {
+            twd: 0.278
+        }
+    },
+    computed: {
+        jpn: {
+            get () {
+                return Number.parseFloat(Number(this.twd) / 0.278).toFixed(3);
+            },
+            set (val) {
+                this.twd = Number.parseFloat(Number(val) * 0.278).toFixed(3);
+            }
+        }
+    }
+}).mount('#coin');
